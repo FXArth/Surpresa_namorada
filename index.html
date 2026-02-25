@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Uma Surpresa para Você</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <style>
+        body {
+            background: linear-gradient(135deg, #fff5f5 0%, #fed7e2 100%);
+            min-height: 100vh;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            z-index: 10;
+        }
+        .floating {
+            animation: floating 3s ease-in-out infinite;
+        }
+        @keyframes floating {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-12px); }
+            100% { transform: translateY(0px); }
+        }
+        /* Estilo do coração clicável */
+        .heart-btn {
+            cursor: pointer;
+            transition: transform 0.3s ease;
+            display: inline-block;
+        }
+        .heart-btn:active {
+            transform: scale(0.8);
+        }
+    </style>
+</head>
+<body class="p-4 font-sans text-gray-800">
+
+    <main class="animate__animated animate__fadeIn max-w-md w-full">
+        
+        <header class="text-center mb-6">
+            <h1 class="text-2xl md:text-3xl font-serif font-bold text-pink-600">
+                Uma pequena surpresa para você meu amor!
+            </h1>
+        </header>
+
+        <div class="glass-card rounded-3xl shadow-2xl overflow-hidden p-8 text-center">
+            
+            <div class="relative w-44 h-44 mx-auto mb-6 rounded-full overflow-hidden border-4 border-white shadow-lg floating">
+                <img src="Eu e a morena.jpeg" 
+                     alt="Nossa Foto" 
+                     onerror="this.src='https://via.placeholder.com/400?text=Nossa+Foto'"
+                     class="w-full h-full object-cover">
+            </div>
+
+            <div class="space-y-4 mb-6">
+                <p class="text-lg leading-relaxed text-gray-700 italic">
+                    "Você é minha Rapunzel — não pela torre, mas pela luz. Teu sorriso é o sol que me puxa pra cima, mesmo nos dias nublados."
+                </p>
+                
+                <div id="coracaoClicavel" class="heart-btn animate__animated animate__heartBeat animate__infinite py-2">
+                    <span class="text-5xl">❤️</span>
+                    <p class="text-xs text-pink-400 mt-2 font-bold uppercase tracking-widest">Toque no coração</p>
+                </div>
+            </div>
+
+            <div class="h-px bg-pink-100 w-full mb-6"></div>
+
+            <p class="text-xs text-gray-400 font-mono mb-4">
+                // if (voce == 'princesa') return 'amor_infinito';
+            </p>
+        </div>
+
+        <footer class="mt-8 text-center text-pink-500 text-sm font-medium">
+            <p>Com amor, Arthur ❤️ 24/02/2026</p>
+        </footer>
+    </main>
+
+    <script>
+        const coracao = document.getElementById('coracaoClicavel');
+        
+        const mostrarMensagem = () => {
+            const amorPelaPrincesa = Infinity;
+
+            if (amorPelaPrincesa === Infinity) {
+                Swal.fire({
+                    title: 'Minha Princesa!',
+                    text: 'Você é a pessoa mais incrível que eu já conheci. O meu "final feliz" é todo dia do seu lado! 👑✨',
+                    confirmButtonText: 'Te amo muito!',
+                    confirmButtonColor: '#ec4899',
+                    imageUrl: 'coração rosa.gif',
+                    imageHeight: 100,
+                    imageAlt: 'Coração',
+                    backdrop: `rgba(255,182,193,0.4)`
+                });
+            }
+        };
+
+        // Adiciona o evento de clique no coração
+        coracao.addEventListener('click', mostrarMensagem);
+    </script>
+</body>
+</html>
